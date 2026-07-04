@@ -189,6 +189,230 @@ func (x *PingResponse) GetMessage() string {
 	return ""
 }
 
+type CreateTransactionRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	AccountId       string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	WalletId        int64                  `protobuf:"varint,2,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	CategoryId      int64                  `protobuf:"varint,3,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
+	BudgetId        *int64                 `protobuf:"varint,4,opt,name=budget_id,json=budgetId,proto3,oneof" json:"budget_id,omitempty"`
+	Type            string                 `protobuf:"bytes,5,opt,name=type,proto3" json:"type,omitempty"`
+	Amount          float64                `protobuf:"fixed64,6,opt,name=amount,proto3" json:"amount,omitempty"`
+	Name            string                 `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
+	IsAiGenerated   bool                   `protobuf:"varint,8,opt,name=is_ai_generated,json=isAiGenerated,proto3" json:"is_ai_generated,omitempty"`
+	ReceiptImageUrl string                 `protobuf:"bytes,9,opt,name=receipt_image_url,json=receiptImageUrl,proto3" json:"receipt_image_url,omitempty"`
+	ReportDate      string                 `protobuf:"bytes,10,opt,name=report_date,json=reportDate,proto3" json:"report_date,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CreateTransactionRequest) Reset() {
+	*x = CreateTransactionRequest{}
+	mi := &file_finance_v1_finance_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateTransactionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateTransactionRequest) ProtoMessage() {}
+
+func (x *CreateTransactionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateTransactionRequest.ProtoReflect.Descriptor instead.
+func (*CreateTransactionRequest) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CreateTransactionRequest) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
+func (x *CreateTransactionRequest) GetWalletId() int64 {
+	if x != nil {
+		return x.WalletId
+	}
+	return 0
+}
+
+func (x *CreateTransactionRequest) GetCategoryId() int64 {
+	if x != nil {
+		return x.CategoryId
+	}
+	return 0
+}
+
+func (x *CreateTransactionRequest) GetBudgetId() int64 {
+	if x != nil && x.BudgetId != nil {
+		return *x.BudgetId
+	}
+	return 0
+}
+
+func (x *CreateTransactionRequest) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *CreateTransactionRequest) GetAmount() float64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+func (x *CreateTransactionRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CreateTransactionRequest) GetIsAiGenerated() bool {
+	if x != nil {
+		return x.IsAiGenerated
+	}
+	return false
+}
+
+func (x *CreateTransactionRequest) GetReceiptImageUrl() string {
+	if x != nil {
+		return x.ReceiptImageUrl
+	}
+	return ""
+}
+
+func (x *CreateTransactionRequest) GetReportDate() string {
+	if x != nil {
+		return x.ReportDate
+	}
+	return ""
+}
+
+type CreateTransactionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TransactionId int64                  `protobuf:"varint,1,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
+	AccountId     string                 `protobuf:"bytes,2,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	WalletId      int64                  `protobuf:"varint,3,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	CategoryId    int64                  `protobuf:"varint,4,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
+	Type          string                 `protobuf:"bytes,5,opt,name=type,proto3" json:"type,omitempty"`
+	Amount        float64                `protobuf:"fixed64,6,opt,name=amount,proto3" json:"amount,omitempty"`
+	Name          string                 `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
+	ReportDate    string                 `protobuf:"bytes,8,opt,name=report_date,json=reportDate,proto3" json:"report_date,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateTransactionResponse) Reset() {
+	*x = CreateTransactionResponse{}
+	mi := &file_finance_v1_finance_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateTransactionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateTransactionResponse) ProtoMessage() {}
+
+func (x *CreateTransactionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateTransactionResponse.ProtoReflect.Descriptor instead.
+func (*CreateTransactionResponse) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CreateTransactionResponse) GetTransactionId() int64 {
+	if x != nil {
+		return x.TransactionId
+	}
+	return 0
+}
+
+func (x *CreateTransactionResponse) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
+func (x *CreateTransactionResponse) GetWalletId() int64 {
+	if x != nil {
+		return x.WalletId
+	}
+	return 0
+}
+
+func (x *CreateTransactionResponse) GetCategoryId() int64 {
+	if x != nil {
+		return x.CategoryId
+	}
+	return 0
+}
+
+func (x *CreateTransactionResponse) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *CreateTransactionResponse) GetAmount() float64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+func (x *CreateTransactionResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CreateTransactionResponse) GetReportDate() string {
+	if x != nil {
+		return x.ReportDate
+	}
+	return ""
+}
+
+func (x *CreateTransactionResponse) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
 var File_finance_v1_finance_proto protoreflect.FileDescriptor
 
 const file_finance_v1_finance_proto_rawDesc = "" +
@@ -201,10 +425,42 @@ const file_finance_v1_finance_proto_rawDesc = "" +
 	"\vPingRequest\x12\x16\n" +
 	"\x06source\x18\x01 \x01(\tR\x06source\"(\n" +
 	"\fPingResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2\x9b\x01\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"\xdc\x02\n" +
+	"\x18CreateTransactionRequest\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\tR\taccountId\x12\x1b\n" +
+	"\twallet_id\x18\x02 \x01(\x03R\bwalletId\x12\x1f\n" +
+	"\vcategory_id\x18\x03 \x01(\x03R\n" +
+	"categoryId\x12 \n" +
+	"\tbudget_id\x18\x04 \x01(\x03H\x00R\bbudgetId\x88\x01\x01\x12\x12\n" +
+	"\x04type\x18\x05 \x01(\tR\x04type\x12\x16\n" +
+	"\x06amount\x18\x06 \x01(\x01R\x06amount\x12\x12\n" +
+	"\x04name\x18\a \x01(\tR\x04name\x12&\n" +
+	"\x0fis_ai_generated\x18\b \x01(\bR\risAiGenerated\x12*\n" +
+	"\x11receipt_image_url\x18\t \x01(\tR\x0freceiptImageUrl\x12\x1f\n" +
+	"\vreport_date\x18\n" +
+	" \x01(\tR\n" +
+	"reportDateB\f\n" +
+	"\n" +
+	"_budget_id\"\x9f\x02\n" +
+	"\x19CreateTransactionResponse\x12%\n" +
+	"\x0etransaction_id\x18\x01 \x01(\x03R\rtransactionId\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x02 \x01(\tR\taccountId\x12\x1b\n" +
+	"\twallet_id\x18\x03 \x01(\x03R\bwalletId\x12\x1f\n" +
+	"\vcategory_id\x18\x04 \x01(\x03R\n" +
+	"categoryId\x12\x12\n" +
+	"\x04type\x18\x05 \x01(\tR\x04type\x12\x16\n" +
+	"\x06amount\x18\x06 \x01(\x01R\x06amount\x12\x12\n" +
+	"\x04name\x18\a \x01(\tR\x04name\x12\x1f\n" +
+	"\vreport_date\x18\b \x01(\tR\n" +
+	"reportDate\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\t \x01(\tR\tcreatedAt2\xfd\x01\n" +
 	"\x0eFinanceService\x12N\n" +
 	"\vHealthCheck\x12\x1e.finance.v1.HealthCheckRequest\x1a\x1f.finance.v1.HealthCheckResponse\x129\n" +
-	"\x04Ping\x12\x17.finance.v1.PingRequest\x1a\x18.finance.v1.PingResponseBfZdgithub.com/azkifairuz/my-skripsi-gwejh/finance-service/internal/generated/proto/finance/v1;financev1b\x06proto3"
+	"\x04Ping\x12\x17.finance.v1.PingRequest\x1a\x18.finance.v1.PingResponse\x12`\n" +
+	"\x11CreateTransaction\x12$.finance.v1.CreateTransactionRequest\x1a%.finance.v1.CreateTransactionResponseBfZdgithub.com/azkifairuz/my-skripsi-gwejh/finance-service/internal/generated/proto/finance/v1;financev1b\x06proto3"
 
 var (
 	file_finance_v1_finance_proto_rawDescOnce sync.Once
@@ -218,20 +474,24 @@ func file_finance_v1_finance_proto_rawDescGZIP() []byte {
 	return file_finance_v1_finance_proto_rawDescData
 }
 
-var file_finance_v1_finance_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_finance_v1_finance_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_finance_v1_finance_proto_goTypes = []any{
-	(*HealthCheckRequest)(nil),  // 0: finance.v1.HealthCheckRequest
-	(*HealthCheckResponse)(nil), // 1: finance.v1.HealthCheckResponse
-	(*PingRequest)(nil),         // 2: finance.v1.PingRequest
-	(*PingResponse)(nil),        // 3: finance.v1.PingResponse
+	(*HealthCheckRequest)(nil),        // 0: finance.v1.HealthCheckRequest
+	(*HealthCheckResponse)(nil),       // 1: finance.v1.HealthCheckResponse
+	(*PingRequest)(nil),               // 2: finance.v1.PingRequest
+	(*PingResponse)(nil),              // 3: finance.v1.PingResponse
+	(*CreateTransactionRequest)(nil),  // 4: finance.v1.CreateTransactionRequest
+	(*CreateTransactionResponse)(nil), // 5: finance.v1.CreateTransactionResponse
 }
 var file_finance_v1_finance_proto_depIdxs = []int32{
 	0, // 0: finance.v1.FinanceService.HealthCheck:input_type -> finance.v1.HealthCheckRequest
 	2, // 1: finance.v1.FinanceService.Ping:input_type -> finance.v1.PingRequest
-	1, // 2: finance.v1.FinanceService.HealthCheck:output_type -> finance.v1.HealthCheckResponse
-	3, // 3: finance.v1.FinanceService.Ping:output_type -> finance.v1.PingResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: finance.v1.FinanceService.CreateTransaction:input_type -> finance.v1.CreateTransactionRequest
+	1, // 3: finance.v1.FinanceService.HealthCheck:output_type -> finance.v1.HealthCheckResponse
+	3, // 4: finance.v1.FinanceService.Ping:output_type -> finance.v1.PingResponse
+	5, // 5: finance.v1.FinanceService.CreateTransaction:output_type -> finance.v1.CreateTransactionResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -242,13 +502,14 @@ func file_finance_v1_finance_proto_init() {
 	if File_finance_v1_finance_proto != nil {
 		return
 	}
+	file_finance_v1_finance_proto_msgTypes[4].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_finance_v1_finance_proto_rawDesc), len(file_finance_v1_finance_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -1,6 +1,7 @@
 prompt.txt
 db.dbml
 issue.md
+.env
 
 # Go build output
 *.exe

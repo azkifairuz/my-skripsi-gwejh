@@ -19,8 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FinanceService_HealthCheck_FullMethodName = "/finance.v1.FinanceService/HealthCheck"
-	FinanceService_Ping_FullMethodName        = "/finance.v1.FinanceService/Ping"
+	FinanceService_HealthCheck_FullMethodName       = "/finance.v1.FinanceService/HealthCheck"
+	FinanceService_Ping_FullMethodName              = "/finance.v1.FinanceService/Ping"
+	FinanceService_CreateTransaction_FullMethodName = "/finance.v1.FinanceService/CreateTransaction"
 )
 
 // FinanceServiceClient is the client API for FinanceService service.
@@ -29,6 +30,7 @@ const (
 type FinanceServiceClient interface {
 	HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error)
+	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 }
 
 type financeServiceClient struct {
@@ -59,12 +61,23 @@ func (c *financeServiceClient) Ping(ctx context.Context, in *PingRequest, opts .
 	return out, nil
 }
 
+func (c *financeServiceClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateTransactionResponse)
+	err := c.cc.Invoke(ctx, FinanceService_CreateTransaction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FinanceServiceServer is the server API for FinanceService service.
 // All implementations must embed UnimplementedFinanceServiceServer
 // for forward compatibility.
 type FinanceServiceServer interface {
 	HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
 	Ping(context.Context, *PingRequest) (*PingResponse, error)
+	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	mustEmbedUnimplementedFinanceServiceServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedFinanceServiceServer) HealthCheck(context.Context, *HealthChe
 }
 func (UnimplementedFinanceServiceServer) Ping(context.Context, *PingRequest) (*PingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Ping not implemented")
+}
+func (UnimplementedFinanceServiceServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateTransaction not implemented")
 }
 func (UnimplementedFinanceServiceServer) mustEmbedUnimplementedFinanceServiceServer() {}
 func (UnimplementedFinanceServiceServer) testEmbeddedByValue()                        {}
@@ -138,6 +154,24 @@ func _FinanceService_Ping_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FinanceService_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FinanceServiceServer).CreateTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FinanceService_CreateTransaction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FinanceServiceServer).CreateTransaction(ctx, req.(*CreateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FinanceService_ServiceDesc is the grpc.ServiceDesc for FinanceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +186,10 @@ var FinanceService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Ping",
 			Handler:    _FinanceService_Ping_Handler,
+		},
+		{
+			MethodName: "CreateTransaction",
+			Handler:    _FinanceService_CreateTransaction_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

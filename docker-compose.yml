@@ -46,6 +46,12 @@ services:
     container_name: finance-service
     environment:
       GRPC_PORT: "50053"
+      DATABASE_HOST: "${DATABASE_HOST:-host.docker.internal}"
+      DATABASE_PORT: "${DATABASE_PORT:-5432}"
+      DATABASE_USER: "${DATABASE_USER:-}"
+      DATABASE_PASSWORD: "${DATABASE_PASSWORD:-}"
+      DATABASE_NAME: "${DATABASE_NAME:-my_skripsi_gwejh}"
+      DATABASE_SSLMODE: "${DATABASE_SSLMODE:-disable}"
     expose:
       - "50053"
     ports:
