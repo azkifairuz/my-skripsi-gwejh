@@ -6,10 +6,19 @@ option go_package = "github.com/azkifairuz/my-skripsi-gwejh/ocr-service/internal
 
 service OcrService {
   rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc Ping(PingRequest) returns (PingResponse);
 }
 
 message HealthCheckRequest {}
 
 message HealthCheckResponse {
   string status = 1;
+}
+
+message PingRequest {
+  string source = 1;
+}
+
+message PingResponse {
+  string message = 1;
 }

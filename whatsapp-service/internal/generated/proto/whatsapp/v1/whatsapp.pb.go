@@ -101,6 +101,102 @@ func (x *HealthCheckResponse) GetStatus() string {
 	return ""
 }
 
+type PingDependenciesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PingDependenciesRequest) Reset() {
+	*x = PingDependenciesRequest{}
+	mi := &file_whatsapp_v1_whatsapp_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PingDependenciesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PingDependenciesRequest) ProtoMessage() {}
+
+func (x *PingDependenciesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_whatsapp_v1_whatsapp_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PingDependenciesRequest.ProtoReflect.Descriptor instead.
+func (*PingDependenciesRequest) Descriptor() ([]byte, []int) {
+	return file_whatsapp_v1_whatsapp_proto_rawDescGZIP(), []int{2}
+}
+
+type PingDependenciesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Finance       string                 `protobuf:"bytes,1,opt,name=finance,proto3" json:"finance,omitempty"`
+	Nlp           string                 `protobuf:"bytes,2,opt,name=nlp,proto3" json:"nlp,omitempty"`
+	Ocr           string                 `protobuf:"bytes,3,opt,name=ocr,proto3" json:"ocr,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PingDependenciesResponse) Reset() {
+	*x = PingDependenciesResponse{}
+	mi := &file_whatsapp_v1_whatsapp_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PingDependenciesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PingDependenciesResponse) ProtoMessage() {}
+
+func (x *PingDependenciesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_whatsapp_v1_whatsapp_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PingDependenciesResponse.ProtoReflect.Descriptor instead.
+func (*PingDependenciesResponse) Descriptor() ([]byte, []int) {
+	return file_whatsapp_v1_whatsapp_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *PingDependenciesResponse) GetFinance() string {
+	if x != nil {
+		return x.Finance
+	}
+	return ""
+}
+
+func (x *PingDependenciesResponse) GetNlp() string {
+	if x != nil {
+		return x.Nlp
+	}
+	return ""
+}
+
+func (x *PingDependenciesResponse) GetOcr() string {
+	if x != nil {
+		return x.Ocr
+	}
+	return ""
+}
+
 var File_whatsapp_v1_whatsapp_proto protoreflect.FileDescriptor
 
 const file_whatsapp_v1_whatsapp_proto_rawDesc = "" +
@@ -108,9 +204,15 @@ const file_whatsapp_v1_whatsapp_proto_rawDesc = "" +
 	"\x1awhatsapp/v1/whatsapp.proto\x12\vwhatsapp.v1\"\x14\n" +
 	"\x12HealthCheckRequest\"-\n" +
 	"\x13HealthCheckResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status2c\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\"\x19\n" +
+	"\x17PingDependenciesRequest\"X\n" +
+	"\x18PingDependenciesResponse\x12\x18\n" +
+	"\afinance\x18\x01 \x01(\tR\afinance\x12\x10\n" +
+	"\x03nlp\x18\x02 \x01(\tR\x03nlp\x12\x10\n" +
+	"\x03ocr\x18\x03 \x01(\tR\x03ocr2\xc4\x01\n" +
 	"\x0fWhatsappService\x12P\n" +
-	"\vHealthCheck\x12\x1f.whatsapp.v1.HealthCheckRequest\x1a .whatsapp.v1.HealthCheckResponseBiZggithub.com/azkifairuz/my-skripsi-gwejh/whatsapp-service/internal/generated/proto/whatsapp/v1;whatsappv1b\x06proto3"
+	"\vHealthCheck\x12\x1f.whatsapp.v1.HealthCheckRequest\x1a .whatsapp.v1.HealthCheckResponse\x12_\n" +
+	"\x10PingDependencies\x12$.whatsapp.v1.PingDependenciesRequest\x1a%.whatsapp.v1.PingDependenciesResponseBiZggithub.com/azkifairuz/my-skripsi-gwejh/whatsapp-service/internal/generated/proto/whatsapp/v1;whatsappv1b\x06proto3"
 
 var (
 	file_whatsapp_v1_whatsapp_proto_rawDescOnce sync.Once
@@ -124,16 +226,20 @@ func file_whatsapp_v1_whatsapp_proto_rawDescGZIP() []byte {
 	return file_whatsapp_v1_whatsapp_proto_rawDescData
 }
 
-var file_whatsapp_v1_whatsapp_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_whatsapp_v1_whatsapp_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_whatsapp_v1_whatsapp_proto_goTypes = []any{
-	(*HealthCheckRequest)(nil),  // 0: whatsapp.v1.HealthCheckRequest
-	(*HealthCheckResponse)(nil), // 1: whatsapp.v1.HealthCheckResponse
+	(*HealthCheckRequest)(nil),       // 0: whatsapp.v1.HealthCheckRequest
+	(*HealthCheckResponse)(nil),      // 1: whatsapp.v1.HealthCheckResponse
+	(*PingDependenciesRequest)(nil),  // 2: whatsapp.v1.PingDependenciesRequest
+	(*PingDependenciesResponse)(nil), // 3: whatsapp.v1.PingDependenciesResponse
 }
 var file_whatsapp_v1_whatsapp_proto_depIdxs = []int32{
 	0, // 0: whatsapp.v1.WhatsappService.HealthCheck:input_type -> whatsapp.v1.HealthCheckRequest
-	1, // 1: whatsapp.v1.WhatsappService.HealthCheck:output_type -> whatsapp.v1.HealthCheckResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	2, // 1: whatsapp.v1.WhatsappService.PingDependencies:input_type -> whatsapp.v1.PingDependenciesRequest
+	1, // 2: whatsapp.v1.WhatsappService.HealthCheck:output_type -> whatsapp.v1.HealthCheckResponse
+	3, // 3: whatsapp.v1.WhatsappService.PingDependencies:output_type -> whatsapp.v1.PingDependenciesResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -150,7 +256,7 @@ func file_whatsapp_v1_whatsapp_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_whatsapp_v1_whatsapp_proto_rawDesc), len(file_whatsapp_v1_whatsapp_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

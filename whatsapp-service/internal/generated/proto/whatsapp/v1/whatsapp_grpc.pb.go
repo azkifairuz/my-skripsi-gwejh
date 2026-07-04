@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	WhatsappService_HealthCheck_FullMethodName = "/whatsapp.v1.WhatsappService/HealthCheck"
+	WhatsappService_HealthCheck_FullMethodName      = "/whatsapp.v1.WhatsappService/HealthCheck"
+	WhatsappService_PingDependencies_FullMethodName = "/whatsapp.v1.WhatsappService/PingDependencies"
 )
 
 // WhatsappServiceClient is the client API for WhatsappService service.
@@ -27,6 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WhatsappServiceClient interface {
 	HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
+	PingDependencies(ctx context.Context, in *PingDependenciesRequest, opts ...grpc.CallOption) (*PingDependenciesResponse, error)
 }
 
 type whatsappServiceClient struct {
@@ -47,11 +49,22 @@ func (c *whatsappServiceClient) HealthCheck(ctx context.Context, in *HealthCheck
 	return out, nil
 }
 
+func (c *whatsappServiceClient) PingDependencies(ctx context.Context, in *PingDependenciesRequest, opts ...grpc.CallOption) (*PingDependenciesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PingDependenciesResponse)
+	err := c.cc.Invoke(ctx, WhatsappService_PingDependencies_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // WhatsappServiceServer is the server API for WhatsappService service.
 // All implementations must embed UnimplementedWhatsappServiceServer
 // for forward compatibility.
 type WhatsappServiceServer interface {
 	HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
+	PingDependencies(context.Context, *PingDependenciesRequest) (*PingDependenciesResponse, error)
 	mustEmbedUnimplementedWhatsappServiceServer()
 }
 
@@ -64,6 +77,9 @@ type UnimplementedWhatsappServiceServer struct{}
 
 func (UnimplementedWhatsappServiceServer) HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HealthCheck not implemented")
+}
+func (UnimplementedWhatsappServiceServer) PingDependencies(context.Context, *PingDependenciesRequest) (*PingDependenciesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PingDependencies not implemented")
 }
 func (UnimplementedWhatsappServiceServer) mustEmbedUnimplementedWhatsappServiceServer() {}
 func (UnimplementedWhatsappServiceServer) testEmbeddedByValue()                         {}
@@ -104,6 +120,24 @@ func _WhatsappService_HealthCheck_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WhatsappService_PingDependencies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PingDependenciesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WhatsappServiceServer).PingDependencies(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WhatsappService_PingDependencies_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WhatsappServiceServer).PingDependencies(ctx, req.(*PingDependenciesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // WhatsappService_ServiceDesc is the grpc.ServiceDesc for WhatsappService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -114,6 +148,10 @@ var WhatsappService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "HealthCheck",
 			Handler:    _WhatsappService_HealthCheck_Handler,
+		},
+		{
+			MethodName: "PingDependencies",
+			Handler:    _WhatsappService_PingDependencies_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

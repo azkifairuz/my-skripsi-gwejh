@@ -6,10 +6,19 @@ option go_package = "github.com/azkifairuz/my-skripsi-gwejh/finance-service/inte
 
 service FinanceService {
   rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc Ping(PingRequest) returns (PingResponse);
 }
 
 message HealthCheckRequest {}
 
 message HealthCheckResponse {
   string status = 1;
+}
+
+message PingRequest {
+  string source = 1;
+}
+
+message PingResponse {
+  string message = 1;
 }

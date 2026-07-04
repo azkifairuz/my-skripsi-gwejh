@@ -6,10 +6,31 @@ option go_package = "github.com/azkifairuz/my-skripsi-gwejh/nlp-service/internal
 
 service NlpService {
   rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc Ping(PingRequest) returns (PingResponse);
+  rpc ExtractTransaction(ExtractTransactionRequest) returns (ExtractTransactionResponse);
 }
 
 message HealthCheckRequest {}
 
 message HealthCheckResponse {
   string status = 1;
+}
+
+message PingRequest {
+  string source = 1;
+}
+
+message PingResponse {
+  string message = 1;
+}
+
+message ExtractTransactionRequest {
+  string text = 1;
+}
+
+message ExtractTransactionResponse {
+  string type = 1;
+  int64 amount = 2;
+  string category = 3;
+  string description = 4;
 }

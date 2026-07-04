@@ -6,10 +6,19 @@ option go_package = "github.com/azkifairuz/my-skripsi-gwejh/whatsapp-service/int
 
 service WhatsappService {
   rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc PingDependencies(PingDependenciesRequest) returns (PingDependenciesResponse);
 }
 
 message HealthCheckRequest {}
 
 message HealthCheckResponse {
   string status = 1;
+}
+
+message PingDependenciesRequest {}
+
+message PingDependenciesResponse {
+  string finance = 1;
+  string nlp = 2;
+  string ocr = 3;
 }
