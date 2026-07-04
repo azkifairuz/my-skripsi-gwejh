@@ -1,0 +1,19 @@
+prompt.txt
+db.dbml
+issue.md
+
+# Go build output
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+bin/
+
+# Local service binaries
+ocr-service/ocr-service
+whatsapp-service/whatsapp-service
+finance-service/finance-service
+nlp-service/nlp-service
