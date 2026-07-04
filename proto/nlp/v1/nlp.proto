@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package nlp.v1;
+
+option go_package = "github.com/azkifairuz/my-skripsi-gwejh/nlp-service/internal/generated/proto/nlp/v1;nlpv1";
+
+service NlpService {
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {}
+
+message HealthCheckResponse {
+  string status = 1;
+}

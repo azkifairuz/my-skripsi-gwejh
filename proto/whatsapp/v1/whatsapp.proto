@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package whatsapp.v1;
+
+option go_package = "github.com/azkifairuz/my-skripsi-gwejh/whatsapp-service/internal/generated/proto/whatsapp/v1;whatsappv1";
+
+service WhatsappService {
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {}
+
+message HealthCheckResponse {
+  string status = 1;
+}

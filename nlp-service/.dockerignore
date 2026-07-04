@@ -1,0 +1,5 @@
+.git
+Dockerfile
+*.out
+*.test
+nlp-service

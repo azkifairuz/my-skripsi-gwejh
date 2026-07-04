@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package finance.v1;
+
+option go_package = "github.com/azkifairuz/my-skripsi-gwejh/finance-service/internal/generated/proto/finance/v1;financev1";
+
+service FinanceService {
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {}
+
+message HealthCheckResponse {
+  string status = 1;
+}

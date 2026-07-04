@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ocr.v1;
+
+option go_package = "github.com/azkifairuz/my-skripsi-gwejh/ocr-service/internal/generated/proto/ocr/v1;ocrv1";
+
+service OcrService {
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {}
+
+message HealthCheckResponse {
+  string status = 1;
+}

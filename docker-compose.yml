@@ -1,0 +1,64 @@
+services:
+  ocr-service:
+    build:
+      context: ./ocr-service
+    container_name: ocr-service
+    environment:
+      RUN_FOREVER: "true"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "ping -c 1 whatsapp-service && ping -c 1 finance-service && ping -c 1 nlp-service"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  whatsapp-service:
+    build:
+      context: ./whatsapp-service
+    container_name: whatsapp-service
+    environment:
+      RUN_FOREVER: "true"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "ping -c 1 ocr-service && ping -c 1 finance-service && ping -c 1 nlp-service"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  finance-service:
+    build:
+      context: ./finance-service
+    container_name: finance-service
+    environment:
+      RUN_FOREVER: "true"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "ping -c 1 ocr-service && ping -c 1 whatsapp-service && ping -c 1 nlp-service"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  nlp-service:
+    build:
+      context: ./nlp-service
+    container_name: nlp-service
+    environment:
+      RUN_FOREVER: "true"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "ping -c 1 ocr-service && ping -c 1 whatsapp-service && ping -c 1 finance-service"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+networks:
+  app-network:
+    driver: bridge
