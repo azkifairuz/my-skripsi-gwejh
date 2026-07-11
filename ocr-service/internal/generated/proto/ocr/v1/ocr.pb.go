@@ -189,6 +189,118 @@ func (x *PingResponse) GetMessage() string {
 	return ""
 }
 
+type ExtractTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Image         []byte                 `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
+	MimeType      string                 `protobuf:"bytes,2,opt,name=mime_type,json=mimeType,proto3" json:"mime_type,omitempty"`
+	Language      string                 `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExtractTextRequest) Reset() {
+	*x = ExtractTextRequest{}
+	mi := &file_ocr_v1_ocr_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExtractTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExtractTextRequest) ProtoMessage() {}
+
+func (x *ExtractTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_ocr_v1_ocr_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExtractTextRequest.ProtoReflect.Descriptor instead.
+func (*ExtractTextRequest) Descriptor() ([]byte, []int) {
+	return file_ocr_v1_ocr_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ExtractTextRequest) GetImage() []byte {
+	if x != nil {
+		return x.Image
+	}
+	return nil
+}
+
+func (x *ExtractTextRequest) GetMimeType() string {
+	if x != nil {
+		return x.MimeType
+	}
+	return ""
+}
+
+func (x *ExtractTextRequest) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
+type ExtractTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Text          string                 `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Confidence    float64                `protobuf:"fixed64,2,opt,name=confidence,proto3" json:"confidence,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExtractTextResponse) Reset() {
+	*x = ExtractTextResponse{}
+	mi := &file_ocr_v1_ocr_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExtractTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExtractTextResponse) ProtoMessage() {}
+
+func (x *ExtractTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_ocr_v1_ocr_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExtractTextResponse.ProtoReflect.Descriptor instead.
+func (*ExtractTextResponse) Descriptor() ([]byte, []int) {
+	return file_ocr_v1_ocr_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ExtractTextResponse) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+func (x *ExtractTextResponse) GetConfidence() float64 {
+	if x != nil {
+		return x.Confidence
+	}
+	return 0
+}
+
 var File_ocr_v1_ocr_proto protoreflect.FileDescriptor
 
 const file_ocr_v1_ocr_proto_rawDesc = "" +
@@ -200,11 +312,21 @@ const file_ocr_v1_ocr_proto_rawDesc = "" +
 	"\vPingRequest\x12\x16\n" +
 	"\x06source\x18\x01 \x01(\tR\x06source\"(\n" +
 	"\fPingResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2\x87\x01\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"c\n" +
+	"\x12ExtractTextRequest\x12\x14\n" +
+	"\x05image\x18\x01 \x01(\fR\x05image\x12\x1b\n" +
+	"\tmime_type\x18\x02 \x01(\tR\bmimeType\x12\x1a\n" +
+	"\blanguage\x18\x03 \x01(\tR\blanguage\"I\n" +
+	"\x13ExtractTextResponse\x12\x12\n" +
+	"\x04text\x18\x01 \x01(\tR\x04text\x12\x1e\n" +
+	"\n" +
+	"confidence\x18\x02 \x01(\x01R\n" +
+	"confidence2\xcf\x01\n" +
 	"\n" +
 	"OcrService\x12F\n" +
 	"\vHealthCheck\x12\x1a.ocr.v1.HealthCheckRequest\x1a\x1b.ocr.v1.HealthCheckResponse\x121\n" +
-	"\x04Ping\x12\x13.ocr.v1.PingRequest\x1a\x14.ocr.v1.PingResponseBZZXgithub.com/azkifairuz/my-skripsi-gwejh/ocr-service/internal/generated/proto/ocr/v1;ocrv1b\x06proto3"
+	"\x04Ping\x12\x13.ocr.v1.PingRequest\x1a\x14.ocr.v1.PingResponse\x12F\n" +
+	"\vExtractText\x12\x1a.ocr.v1.ExtractTextRequest\x1a\x1b.ocr.v1.ExtractTextResponseBZZXgithub.com/azkifairuz/my-skripsi-gwejh/ocr-service/internal/generated/proto/ocr/v1;ocrv1b\x06proto3"
 
 var (
 	file_ocr_v1_ocr_proto_rawDescOnce sync.Once
@@ -218,20 +340,24 @@ func file_ocr_v1_ocr_proto_rawDescGZIP() []byte {
 	return file_ocr_v1_ocr_proto_rawDescData
 }
 
-var file_ocr_v1_ocr_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_ocr_v1_ocr_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_ocr_v1_ocr_proto_goTypes = []any{
 	(*HealthCheckRequest)(nil),  // 0: ocr.v1.HealthCheckRequest
 	(*HealthCheckResponse)(nil), // 1: ocr.v1.HealthCheckResponse
 	(*PingRequest)(nil),         // 2: ocr.v1.PingRequest
 	(*PingResponse)(nil),        // 3: ocr.v1.PingResponse
+	(*ExtractTextRequest)(nil),  // 4: ocr.v1.ExtractTextRequest
+	(*ExtractTextResponse)(nil), // 5: ocr.v1.ExtractTextResponse
 }
 var file_ocr_v1_ocr_proto_depIdxs = []int32{
 	0, // 0: ocr.v1.OcrService.HealthCheck:input_type -> ocr.v1.HealthCheckRequest
 	2, // 1: ocr.v1.OcrService.Ping:input_type -> ocr.v1.PingRequest
-	1, // 2: ocr.v1.OcrService.HealthCheck:output_type -> ocr.v1.HealthCheckResponse
-	3, // 3: ocr.v1.OcrService.Ping:output_type -> ocr.v1.PingResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: ocr.v1.OcrService.ExtractText:input_type -> ocr.v1.ExtractTextRequest
+	1, // 3: ocr.v1.OcrService.HealthCheck:output_type -> ocr.v1.HealthCheckResponse
+	3, // 4: ocr.v1.OcrService.Ping:output_type -> ocr.v1.PingResponse
+	5, // 5: ocr.v1.OcrService.ExtractText:output_type -> ocr.v1.ExtractTextResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -248,7 +374,7 @@ func file_ocr_v1_ocr_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ocr_v1_ocr_proto_rawDesc), len(file_ocr_v1_ocr_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

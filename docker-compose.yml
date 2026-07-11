@@ -1,7 +1,8 @@
 services:
   ocr-service:
     build:
-      context: ./ocr-service
+      context: .
+      dockerfile: ./ocr-service/Dockerfile
     container_name: ocr-service
     environment:
       GRPC_PORT: "50051"

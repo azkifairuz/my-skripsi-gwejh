@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	OcrService_HealthCheck_FullMethodName = "/ocr.v1.OcrService/HealthCheck"
 	OcrService_Ping_FullMethodName        = "/ocr.v1.OcrService/Ping"
+	OcrService_ExtractText_FullMethodName = "/ocr.v1.OcrService/ExtractText"
 )
 
 // OcrServiceClient is the client API for OcrService service.
@@ -29,6 +30,7 @@ const (
 type OcrServiceClient interface {
 	HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error)
+	ExtractText(ctx context.Context, in *ExtractTextRequest, opts ...grpc.CallOption) (*ExtractTextResponse, error)
 }
 
 type ocrServiceClient struct {
@@ -59,12 +61,23 @@ func (c *ocrServiceClient) Ping(ctx context.Context, in *PingRequest, opts ...gr
 	return out, nil
 }
 
+func (c *ocrServiceClient) ExtractText(ctx context.Context, in *ExtractTextRequest, opts ...grpc.CallOption) (*ExtractTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExtractTextResponse)
+	err := c.cc.Invoke(ctx, OcrService_ExtractText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // OcrServiceServer is the server API for OcrService service.
 // All implementations must embed UnimplementedOcrServiceServer
 // for forward compatibility.
 type OcrServiceServer interface {
 	HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
 	Ping(context.Context, *PingRequest) (*PingResponse, error)
+	ExtractText(context.Context, *ExtractTextRequest) (*ExtractTextResponse, error)
 	mustEmbedUnimplementedOcrServiceServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedOcrServiceServer) HealthCheck(context.Context, *HealthCheckRe
 }
 func (UnimplementedOcrServiceServer) Ping(context.Context, *PingRequest) (*PingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Ping not implemented")
+}
+func (UnimplementedOcrServiceServer) ExtractText(context.Context, *ExtractTextRequest) (*ExtractTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExtractText not implemented")
 }
 func (UnimplementedOcrServiceServer) mustEmbedUnimplementedOcrServiceServer() {}
 func (UnimplementedOcrServiceServer) testEmbeddedByValue()                    {}
@@ -138,6 +154,24 @@ func _OcrService_Ping_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OcrService_ExtractText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExtractTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OcrServiceServer).ExtractText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OcrService_ExtractText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OcrServiceServer).ExtractText(ctx, req.(*ExtractTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // OcrService_ServiceDesc is the grpc.ServiceDesc for OcrService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +186,10 @@ var OcrService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Ping",
 			Handler:    _OcrService_Ping_Handler,
+		},
+		{
+			MethodName: "ExtractText",
+			Handler:    _OcrService_ExtractText_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
