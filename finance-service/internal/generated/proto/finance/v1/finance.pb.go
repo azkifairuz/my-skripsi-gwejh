@@ -189,6 +189,358 @@ func (x *PingResponse) GetMessage() string {
 	return ""
 }
 
+type RegisterByWhatsappNumberRequest struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	WhatsappNumber string                 `protobuf:"bytes,1,opt,name=whatsapp_number,json=whatsappNumber,proto3" json:"whatsapp_number,omitempty"`
+	Username       string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *RegisterByWhatsappNumberRequest) Reset() {
+	*x = RegisterByWhatsappNumberRequest{}
+	mi := &file_finance_v1_finance_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterByWhatsappNumberRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterByWhatsappNumberRequest) ProtoMessage() {}
+
+func (x *RegisterByWhatsappNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterByWhatsappNumberRequest.ProtoReflect.Descriptor instead.
+func (*RegisterByWhatsappNumberRequest) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RegisterByWhatsappNumberRequest) GetWhatsappNumber() string {
+	if x != nil {
+		return x.WhatsappNumber
+	}
+	return ""
+}
+
+func (x *RegisterByWhatsappNumberRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+type RegisterByWhatsappNumberResponse struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	AccountId       string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	WhatsappNumber  string                 `protobuf:"bytes,2,opt,name=whatsapp_number,json=whatsappNumber,proto3" json:"whatsapp_number,omitempty"`
+	Username        string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
+	PrimaryWalletId int64                  `protobuf:"varint,4,opt,name=primary_wallet_id,json=primaryWalletId,proto3" json:"primary_wallet_id,omitempty"`
+	Created         bool                   `protobuf:"varint,5,opt,name=created,proto3" json:"created,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *RegisterByWhatsappNumberResponse) Reset() {
+	*x = RegisterByWhatsappNumberResponse{}
+	mi := &file_finance_v1_finance_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterByWhatsappNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterByWhatsappNumberResponse) ProtoMessage() {}
+
+func (x *RegisterByWhatsappNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterByWhatsappNumberResponse.ProtoReflect.Descriptor instead.
+func (*RegisterByWhatsappNumberResponse) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *RegisterByWhatsappNumberResponse) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
+func (x *RegisterByWhatsappNumberResponse) GetWhatsappNumber() string {
+	if x != nil {
+		return x.WhatsappNumber
+	}
+	return ""
+}
+
+func (x *RegisterByWhatsappNumberResponse) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *RegisterByWhatsappNumberResponse) GetPrimaryWalletId() int64 {
+	if x != nil {
+		return x.PrimaryWalletId
+	}
+	return 0
+}
+
+func (x *RegisterByWhatsappNumberResponse) GetCreated() bool {
+	if x != nil {
+		return x.Created
+	}
+	return false
+}
+
+func (x *RegisterByWhatsappNumberResponse) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type LoginByWhatsappNumberRequest struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	WhatsappNumber string                 `protobuf:"bytes,1,opt,name=whatsapp_number,json=whatsappNumber,proto3" json:"whatsapp_number,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *LoginByWhatsappNumberRequest) Reset() {
+	*x = LoginByWhatsappNumberRequest{}
+	mi := &file_finance_v1_finance_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginByWhatsappNumberRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginByWhatsappNumberRequest) ProtoMessage() {}
+
+func (x *LoginByWhatsappNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginByWhatsappNumberRequest.ProtoReflect.Descriptor instead.
+func (*LoginByWhatsappNumberRequest) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *LoginByWhatsappNumberRequest) GetWhatsappNumber() string {
+	if x != nil {
+		return x.WhatsappNumber
+	}
+	return ""
+}
+
+type LoginByWhatsappNumberResponse struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	AccountId       string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	WhatsappNumber  string                 `protobuf:"bytes,2,opt,name=whatsapp_number,json=whatsappNumber,proto3" json:"whatsapp_number,omitempty"`
+	Username        string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
+	PrimaryWalletId int64                  `protobuf:"varint,4,opt,name=primary_wallet_id,json=primaryWalletId,proto3" json:"primary_wallet_id,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *LoginByWhatsappNumberResponse) Reset() {
+	*x = LoginByWhatsappNumberResponse{}
+	mi := &file_finance_v1_finance_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginByWhatsappNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginByWhatsappNumberResponse) ProtoMessage() {}
+
+func (x *LoginByWhatsappNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginByWhatsappNumberResponse.ProtoReflect.Descriptor instead.
+func (*LoginByWhatsappNumberResponse) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *LoginByWhatsappNumberResponse) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
+func (x *LoginByWhatsappNumberResponse) GetWhatsappNumber() string {
+	if x != nil {
+		return x.WhatsappNumber
+	}
+	return ""
+}
+
+func (x *LoginByWhatsappNumberResponse) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *LoginByWhatsappNumberResponse) GetPrimaryWalletId() int64 {
+	if x != nil {
+		return x.PrimaryWalletId
+	}
+	return 0
+}
+
+func (x *LoginByWhatsappNumberResponse) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type ResolveCategoryByNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CategoryName  string                 `protobuf:"bytes,1,opt,name=category_name,json=categoryName,proto3" json:"category_name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResolveCategoryByNameRequest) Reset() {
+	*x = ResolveCategoryByNameRequest{}
+	mi := &file_finance_v1_finance_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResolveCategoryByNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResolveCategoryByNameRequest) ProtoMessage() {}
+
+func (x *ResolveCategoryByNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResolveCategoryByNameRequest.ProtoReflect.Descriptor instead.
+func (*ResolveCategoryByNameRequest) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ResolveCategoryByNameRequest) GetCategoryName() string {
+	if x != nil {
+		return x.CategoryName
+	}
+	return ""
+}
+
+type ResolveCategoryByNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CategoryId    int64                  `protobuf:"varint,1,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResolveCategoryByNameResponse) Reset() {
+	*x = ResolveCategoryByNameResponse{}
+	mi := &file_finance_v1_finance_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResolveCategoryByNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResolveCategoryByNameResponse) ProtoMessage() {}
+
+func (x *ResolveCategoryByNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResolveCategoryByNameResponse.ProtoReflect.Descriptor instead.
+func (*ResolveCategoryByNameResponse) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ResolveCategoryByNameResponse) GetCategoryId() int64 {
+	if x != nil {
+		return x.CategoryId
+	}
+	return 0
+}
+
+func (x *ResolveCategoryByNameResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
 type CreateTransactionRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	AccountId       string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
@@ -207,7 +559,7 @@ type CreateTransactionRequest struct {
 
 func (x *CreateTransactionRequest) Reset() {
 	*x = CreateTransactionRequest{}
-	mi := &file_finance_v1_finance_proto_msgTypes[4]
+	mi := &file_finance_v1_finance_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -219,7 +571,7 @@ func (x *CreateTransactionRequest) String() string {
 func (*CreateTransactionRequest) ProtoMessage() {}
 
 func (x *CreateTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_finance_v1_finance_proto_msgTypes[4]
+	mi := &file_finance_v1_finance_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -232,7 +584,7 @@ func (x *CreateTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTransactionRequest.ProtoReflect.Descriptor instead.
 func (*CreateTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_finance_v1_finance_proto_rawDescGZIP(), []int{4}
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CreateTransactionRequest) GetAccountId() string {
@@ -322,7 +674,7 @@ type CreateTransactionResponse struct {
 
 func (x *CreateTransactionResponse) Reset() {
 	*x = CreateTransactionResponse{}
-	mi := &file_finance_v1_finance_proto_msgTypes[5]
+	mi := &file_finance_v1_finance_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -334,7 +686,7 @@ func (x *CreateTransactionResponse) String() string {
 func (*CreateTransactionResponse) ProtoMessage() {}
 
 func (x *CreateTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_finance_v1_finance_proto_msgTypes[5]
+	mi := &file_finance_v1_finance_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -347,7 +699,7 @@ func (x *CreateTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTransactionResponse.ProtoReflect.Descriptor instead.
 func (*CreateTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_finance_v1_finance_proto_rawDescGZIP(), []int{5}
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CreateTransactionResponse) GetTransactionId() int64 {
@@ -413,6 +765,298 @@ func (x *CreateTransactionResponse) GetCreatedAt() string {
 	return ""
 }
 
+type ListTransactionHistoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AccountId     string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	Limit         int32                  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Offset        int32                  `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
+	Type          string                 `protobuf:"bytes,4,opt,name=type,proto3" json:"type,omitempty"`
+	FromDate      string                 `protobuf:"bytes,5,opt,name=from_date,json=fromDate,proto3" json:"from_date,omitempty"`
+	ToDate        string                 `protobuf:"bytes,6,opt,name=to_date,json=toDate,proto3" json:"to_date,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListTransactionHistoryRequest) Reset() {
+	*x = ListTransactionHistoryRequest{}
+	mi := &file_finance_v1_finance_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListTransactionHistoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListTransactionHistoryRequest) ProtoMessage() {}
+
+func (x *ListTransactionHistoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListTransactionHistoryRequest.ProtoReflect.Descriptor instead.
+func (*ListTransactionHistoryRequest) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ListTransactionHistoryRequest) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
+func (x *ListTransactionHistoryRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *ListTransactionHistoryRequest) GetOffset() int32 {
+	if x != nil {
+		return x.Offset
+	}
+	return 0
+}
+
+func (x *ListTransactionHistoryRequest) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *ListTransactionHistoryRequest) GetFromDate() string {
+	if x != nil {
+		return x.FromDate
+	}
+	return ""
+}
+
+func (x *ListTransactionHistoryRequest) GetToDate() string {
+	if x != nil {
+		return x.ToDate
+	}
+	return ""
+}
+
+type TransactionHistoryItem struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	TransactionId   int64                  `protobuf:"varint,1,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
+	AccountId       string                 `protobuf:"bytes,2,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	WalletId        int64                  `protobuf:"varint,3,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	WalletName      string                 `protobuf:"bytes,4,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
+	CategoryId      int64                  `protobuf:"varint,5,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
+	CategoryName    string                 `protobuf:"bytes,6,opt,name=category_name,json=categoryName,proto3" json:"category_name,omitempty"`
+	Type            string                 `protobuf:"bytes,7,opt,name=type,proto3" json:"type,omitempty"`
+	Amount          float64                `protobuf:"fixed64,8,opt,name=amount,proto3" json:"amount,omitempty"`
+	Name            string                 `protobuf:"bytes,9,opt,name=name,proto3" json:"name,omitempty"`
+	IsAiGenerated   bool                   `protobuf:"varint,10,opt,name=is_ai_generated,json=isAiGenerated,proto3" json:"is_ai_generated,omitempty"`
+	ReceiptImageUrl string                 `protobuf:"bytes,11,opt,name=receipt_image_url,json=receiptImageUrl,proto3" json:"receipt_image_url,omitempty"`
+	ReportDate      string                 `protobuf:"bytes,12,opt,name=report_date,json=reportDate,proto3" json:"report_date,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,13,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *TransactionHistoryItem) Reset() {
+	*x = TransactionHistoryItem{}
+	mi := &file_finance_v1_finance_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TransactionHistoryItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TransactionHistoryItem) ProtoMessage() {}
+
+func (x *TransactionHistoryItem) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TransactionHistoryItem.ProtoReflect.Descriptor instead.
+func (*TransactionHistoryItem) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *TransactionHistoryItem) GetTransactionId() int64 {
+	if x != nil {
+		return x.TransactionId
+	}
+	return 0
+}
+
+func (x *TransactionHistoryItem) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
+func (x *TransactionHistoryItem) GetWalletId() int64 {
+	if x != nil {
+		return x.WalletId
+	}
+	return 0
+}
+
+func (x *TransactionHistoryItem) GetWalletName() string {
+	if x != nil {
+		return x.WalletName
+	}
+	return ""
+}
+
+func (x *TransactionHistoryItem) GetCategoryId() int64 {
+	if x != nil {
+		return x.CategoryId
+	}
+	return 0
+}
+
+func (x *TransactionHistoryItem) GetCategoryName() string {
+	if x != nil {
+		return x.CategoryName
+	}
+	return ""
+}
+
+func (x *TransactionHistoryItem) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *TransactionHistoryItem) GetAmount() float64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+func (x *TransactionHistoryItem) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *TransactionHistoryItem) GetIsAiGenerated() bool {
+	if x != nil {
+		return x.IsAiGenerated
+	}
+	return false
+}
+
+func (x *TransactionHistoryItem) GetReceiptImageUrl() string {
+	if x != nil {
+		return x.ReceiptImageUrl
+	}
+	return ""
+}
+
+func (x *TransactionHistoryItem) GetReportDate() string {
+	if x != nil {
+		return x.ReportDate
+	}
+	return ""
+}
+
+func (x *TransactionHistoryItem) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type ListTransactionHistoryResponse struct {
+	state         protoimpl.MessageState    `protogen:"open.v1"`
+	Transactions  []*TransactionHistoryItem `protobuf:"bytes,1,rep,name=transactions,proto3" json:"transactions,omitempty"`
+	Limit         int32                     `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Offset        int32                     `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
+	Count         int32                     `protobuf:"varint,4,opt,name=count,proto3" json:"count,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListTransactionHistoryResponse) Reset() {
+	*x = ListTransactionHistoryResponse{}
+	mi := &file_finance_v1_finance_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListTransactionHistoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListTransactionHistoryResponse) ProtoMessage() {}
+
+func (x *ListTransactionHistoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_finance_v1_finance_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListTransactionHistoryResponse.ProtoReflect.Descriptor instead.
+func (*ListTransactionHistoryResponse) Descriptor() ([]byte, []int) {
+	return file_finance_v1_finance_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ListTransactionHistoryResponse) GetTransactions() []*TransactionHistoryItem {
+	if x != nil {
+		return x.Transactions
+	}
+	return nil
+}
+
+func (x *ListTransactionHistoryResponse) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *ListTransactionHistoryResponse) GetOffset() int32 {
+	if x != nil {
+		return x.Offset
+	}
+	return 0
+}
+
+func (x *ListTransactionHistoryResponse) GetCount() int32 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
+}
+
 var File_finance_v1_finance_proto protoreflect.FileDescriptor
 
 const file_finance_v1_finance_proto_rawDesc = "" +
@@ -425,7 +1069,35 @@ const file_finance_v1_finance_proto_rawDesc = "" +
 	"\vPingRequest\x12\x16\n" +
 	"\x06source\x18\x01 \x01(\tR\x06source\"(\n" +
 	"\fPingResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\xdc\x02\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"f\n" +
+	"\x1fRegisterByWhatsappNumberRequest\x12'\n" +
+	"\x0fwhatsapp_number\x18\x01 \x01(\tR\x0ewhatsappNumber\x12\x1a\n" +
+	"\busername\x18\x02 \x01(\tR\busername\"\xeb\x01\n" +
+	" RegisterByWhatsappNumberResponse\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\tR\taccountId\x12'\n" +
+	"\x0fwhatsapp_number\x18\x02 \x01(\tR\x0ewhatsappNumber\x12\x1a\n" +
+	"\busername\x18\x03 \x01(\tR\busername\x12*\n" +
+	"\x11primary_wallet_id\x18\x04 \x01(\x03R\x0fprimaryWalletId\x12\x18\n" +
+	"\acreated\x18\x05 \x01(\bR\acreated\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x06 \x01(\tR\tcreatedAt\"G\n" +
+	"\x1cLoginByWhatsappNumberRequest\x12'\n" +
+	"\x0fwhatsapp_number\x18\x01 \x01(\tR\x0ewhatsappNumber\"\xce\x01\n" +
+	"\x1dLoginByWhatsappNumberResponse\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\tR\taccountId\x12'\n" +
+	"\x0fwhatsapp_number\x18\x02 \x01(\tR\x0ewhatsappNumber\x12\x1a\n" +
+	"\busername\x18\x03 \x01(\tR\busername\x12*\n" +
+	"\x11primary_wallet_id\x18\x04 \x01(\x03R\x0fprimaryWalletId\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\"C\n" +
+	"\x1cResolveCategoryByNameRequest\x12#\n" +
+	"\rcategory_name\x18\x01 \x01(\tR\fcategoryName\"T\n" +
+	"\x1dResolveCategoryByNameResponse\x12\x1f\n" +
+	"\vcategory_id\x18\x01 \x01(\x03R\n" +
+	"categoryId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\xdc\x02\n" +
 	"\x18CreateTransactionRequest\x12\x1d\n" +
 	"\n" +
 	"account_id\x18\x01 \x01(\tR\taccountId\x12\x1b\n" +
@@ -456,11 +1128,48 @@ const file_finance_v1_finance_proto_rawDesc = "" +
 	"\vreport_date\x18\b \x01(\tR\n" +
 	"reportDate\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\t \x01(\tR\tcreatedAt2\xfd\x01\n" +
+	"created_at\x18\t \x01(\tR\tcreatedAt\"\xb6\x01\n" +
+	"\x1dListTransactionHistoryRequest\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\tR\taccountId\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x16\n" +
+	"\x06offset\x18\x03 \x01(\x05R\x06offset\x12\x12\n" +
+	"\x04type\x18\x04 \x01(\tR\x04type\x12\x1b\n" +
+	"\tfrom_date\x18\x05 \x01(\tR\bfromDate\x12\x17\n" +
+	"\ato_date\x18\x06 \x01(\tR\x06toDate\"\xb6\x03\n" +
+	"\x16TransactionHistoryItem\x12%\n" +
+	"\x0etransaction_id\x18\x01 \x01(\x03R\rtransactionId\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x02 \x01(\tR\taccountId\x12\x1b\n" +
+	"\twallet_id\x18\x03 \x01(\x03R\bwalletId\x12\x1f\n" +
+	"\vwallet_name\x18\x04 \x01(\tR\n" +
+	"walletName\x12\x1f\n" +
+	"\vcategory_id\x18\x05 \x01(\x03R\n" +
+	"categoryId\x12#\n" +
+	"\rcategory_name\x18\x06 \x01(\tR\fcategoryName\x12\x12\n" +
+	"\x04type\x18\a \x01(\tR\x04type\x12\x16\n" +
+	"\x06amount\x18\b \x01(\x01R\x06amount\x12\x12\n" +
+	"\x04name\x18\t \x01(\tR\x04name\x12&\n" +
+	"\x0fis_ai_generated\x18\n" +
+	" \x01(\bR\risAiGenerated\x12*\n" +
+	"\x11receipt_image_url\x18\v \x01(\tR\x0freceiptImageUrl\x12\x1f\n" +
+	"\vreport_date\x18\f \x01(\tR\n" +
+	"reportDate\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\r \x01(\tR\tcreatedAt\"\xac\x01\n" +
+	"\x1eListTransactionHistoryResponse\x12F\n" +
+	"\ftransactions\x18\x01 \x03(\v2\".finance.v1.TransactionHistoryItemR\ftransactions\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x16\n" +
+	"\x06offset\x18\x03 \x01(\x05R\x06offset\x12\x14\n" +
+	"\x05count\x18\x04 \x01(\x05R\x05count2\xc1\x05\n" +
 	"\x0eFinanceService\x12N\n" +
 	"\vHealthCheck\x12\x1e.finance.v1.HealthCheckRequest\x1a\x1f.finance.v1.HealthCheckResponse\x129\n" +
-	"\x04Ping\x12\x17.finance.v1.PingRequest\x1a\x18.finance.v1.PingResponse\x12`\n" +
-	"\x11CreateTransaction\x12$.finance.v1.CreateTransactionRequest\x1a%.finance.v1.CreateTransactionResponseBfZdgithub.com/azkifairuz/my-skripsi-gwejh/finance-service/internal/generated/proto/finance/v1;financev1b\x06proto3"
+	"\x04Ping\x12\x17.finance.v1.PingRequest\x1a\x18.finance.v1.PingResponse\x12u\n" +
+	"\x18RegisterByWhatsappNumber\x12+.finance.v1.RegisterByWhatsappNumberRequest\x1a,.finance.v1.RegisterByWhatsappNumberResponse\x12l\n" +
+	"\x15LoginByWhatsappNumber\x12(.finance.v1.LoginByWhatsappNumberRequest\x1a).finance.v1.LoginByWhatsappNumberResponse\x12l\n" +
+	"\x15ResolveCategoryByName\x12(.finance.v1.ResolveCategoryByNameRequest\x1a).finance.v1.ResolveCategoryByNameResponse\x12`\n" +
+	"\x11CreateTransaction\x12$.finance.v1.CreateTransactionRequest\x1a%.finance.v1.CreateTransactionResponse\x12o\n" +
+	"\x16ListTransactionHistory\x12).finance.v1.ListTransactionHistoryRequest\x1a*.finance.v1.ListTransactionHistoryResponseBfZdgithub.com/azkifairuz/my-skripsi-gwejh/finance-service/internal/generated/proto/finance/v1;financev1b\x06proto3"
 
 var (
 	file_finance_v1_finance_proto_rawDescOnce sync.Once
@@ -474,27 +1183,45 @@ func file_finance_v1_finance_proto_rawDescGZIP() []byte {
 	return file_finance_v1_finance_proto_rawDescData
 }
 
-var file_finance_v1_finance_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_finance_v1_finance_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_finance_v1_finance_proto_goTypes = []any{
-	(*HealthCheckRequest)(nil),        // 0: finance.v1.HealthCheckRequest
-	(*HealthCheckResponse)(nil),       // 1: finance.v1.HealthCheckResponse
-	(*PingRequest)(nil),               // 2: finance.v1.PingRequest
-	(*PingResponse)(nil),              // 3: finance.v1.PingResponse
-	(*CreateTransactionRequest)(nil),  // 4: finance.v1.CreateTransactionRequest
-	(*CreateTransactionResponse)(nil), // 5: finance.v1.CreateTransactionResponse
+	(*HealthCheckRequest)(nil),               // 0: finance.v1.HealthCheckRequest
+	(*HealthCheckResponse)(nil),              // 1: finance.v1.HealthCheckResponse
+	(*PingRequest)(nil),                      // 2: finance.v1.PingRequest
+	(*PingResponse)(nil),                     // 3: finance.v1.PingResponse
+	(*RegisterByWhatsappNumberRequest)(nil),  // 4: finance.v1.RegisterByWhatsappNumberRequest
+	(*RegisterByWhatsappNumberResponse)(nil), // 5: finance.v1.RegisterByWhatsappNumberResponse
+	(*LoginByWhatsappNumberRequest)(nil),     // 6: finance.v1.LoginByWhatsappNumberRequest
+	(*LoginByWhatsappNumberResponse)(nil),    // 7: finance.v1.LoginByWhatsappNumberResponse
+	(*ResolveCategoryByNameRequest)(nil),     // 8: finance.v1.ResolveCategoryByNameRequest
+	(*ResolveCategoryByNameResponse)(nil),    // 9: finance.v1.ResolveCategoryByNameResponse
+	(*CreateTransactionRequest)(nil),         // 10: finance.v1.CreateTransactionRequest
+	(*CreateTransactionResponse)(nil),        // 11: finance.v1.CreateTransactionResponse
+	(*ListTransactionHistoryRequest)(nil),    // 12: finance.v1.ListTransactionHistoryRequest
+	(*TransactionHistoryItem)(nil),           // 13: finance.v1.TransactionHistoryItem
+	(*ListTransactionHistoryResponse)(nil),   // 14: finance.v1.ListTransactionHistoryResponse
 }
 var file_finance_v1_finance_proto_depIdxs = []int32{
-	0, // 0: finance.v1.FinanceService.HealthCheck:input_type -> finance.v1.HealthCheckRequest
-	2, // 1: finance.v1.FinanceService.Ping:input_type -> finance.v1.PingRequest
-	4, // 2: finance.v1.FinanceService.CreateTransaction:input_type -> finance.v1.CreateTransactionRequest
-	1, // 3: finance.v1.FinanceService.HealthCheck:output_type -> finance.v1.HealthCheckResponse
-	3, // 4: finance.v1.FinanceService.Ping:output_type -> finance.v1.PingResponse
-	5, // 5: finance.v1.FinanceService.CreateTransaction:output_type -> finance.v1.CreateTransactionResponse
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	13, // 0: finance.v1.ListTransactionHistoryResponse.transactions:type_name -> finance.v1.TransactionHistoryItem
+	0,  // 1: finance.v1.FinanceService.HealthCheck:input_type -> finance.v1.HealthCheckRequest
+	2,  // 2: finance.v1.FinanceService.Ping:input_type -> finance.v1.PingRequest
+	4,  // 3: finance.v1.FinanceService.RegisterByWhatsappNumber:input_type -> finance.v1.RegisterByWhatsappNumberRequest
+	6,  // 4: finance.v1.FinanceService.LoginByWhatsappNumber:input_type -> finance.v1.LoginByWhatsappNumberRequest
+	8,  // 5: finance.v1.FinanceService.ResolveCategoryByName:input_type -> finance.v1.ResolveCategoryByNameRequest
+	10, // 6: finance.v1.FinanceService.CreateTransaction:input_type -> finance.v1.CreateTransactionRequest
+	12, // 7: finance.v1.FinanceService.ListTransactionHistory:input_type -> finance.v1.ListTransactionHistoryRequest
+	1,  // 8: finance.v1.FinanceService.HealthCheck:output_type -> finance.v1.HealthCheckResponse
+	3,  // 9: finance.v1.FinanceService.Ping:output_type -> finance.v1.PingResponse
+	5,  // 10: finance.v1.FinanceService.RegisterByWhatsappNumber:output_type -> finance.v1.RegisterByWhatsappNumberResponse
+	7,  // 11: finance.v1.FinanceService.LoginByWhatsappNumber:output_type -> finance.v1.LoginByWhatsappNumberResponse
+	9,  // 12: finance.v1.FinanceService.ResolveCategoryByName:output_type -> finance.v1.ResolveCategoryByNameResponse
+	11, // 13: finance.v1.FinanceService.CreateTransaction:output_type -> finance.v1.CreateTransactionResponse
+	14, // 14: finance.v1.FinanceService.ListTransactionHistory:output_type -> finance.v1.ListTransactionHistoryResponse
+	8,  // [8:15] is the sub-list for method output_type
+	1,  // [1:8] is the sub-list for method input_type
+	1,  // [1:1] is the sub-list for extension type_name
+	1,  // [1:1] is the sub-list for extension extendee
+	0,  // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_finance_v1_finance_proto_init() }
@@ -502,14 +1229,14 @@ func file_finance_v1_finance_proto_init() {
 	if File_finance_v1_finance_proto != nil {
 		return
 	}
-	file_finance_v1_finance_proto_msgTypes[4].OneofWrappers = []any{}
+	file_finance_v1_finance_proto_msgTypes[10].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_finance_v1_finance_proto_rawDesc), len(file_finance_v1_finance_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -27,8 +27,8 @@ func main() {
 	}
 
 	server := grpc.NewServer()
-	transactionRepository := setupTransactionRepository()
-	financev1.RegisterFinanceServiceServer(server, grpcserver.NewServer(transactionRepository))
+	accountRepository, categoryRepository, transactionRepository := setupRepositories()
+	financev1.RegisterFinanceServiceServer(server, grpcserver.NewServer(accountRepository, categoryRepository, transactionRepository))
 	reflection.Register(server)
 
 	log.Printf("finance gRPC server listening on port %s", port)
@@ -37,11 +37,11 @@ func main() {
 	}
 }
 
-func setupTransactionRepository() *repository.TransactionRepository {
+func setupRepositories() (*repository.AccountRepository, *repository.CategoryRepository, *repository.TransactionRepository) {
 	config := database.LoadConfig()
 	if !config.Enabled() {
 		log.Print("database is not configured; CreateTransaction will be unavailable")
-		return nil
+		return nil, nil, nil
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -57,5 +57,5 @@ func setupTransactionRepository() *repository.TransactionRepository {
 	}
 
 	log.Print("database connected and migrated")
-	return repository.NewTransactionRepository(db)
+	return repository.NewAccountRepository(db), repository.NewCategoryRepository(db), repository.NewTransactionRepository(db)
 }

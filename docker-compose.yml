@@ -21,7 +21,8 @@ services:
 
   whatsapp-service:
     build:
-      context: ./whatsapp-service
+      context: .
+      dockerfile: ./whatsapp-service/Dockerfile
     container_name: whatsapp-service
     environment:
       GRPC_PORT: "50052"
@@ -32,6 +33,8 @@ services:
       - "50052"
     ports:
       - "50052:50052"
+    volumes:
+      - whatsapp-auth:/app/.wwebjs_auth
     networks:
       - app-network
     healthcheck:
@@ -107,3 +110,4 @@ networks:
 
 volumes:
   ollama-data:
+  whatsapp-auth:

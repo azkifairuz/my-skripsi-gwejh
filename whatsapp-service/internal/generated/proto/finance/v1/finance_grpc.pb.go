@@ -19,9 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FinanceService_HealthCheck_FullMethodName       = "/finance.v1.FinanceService/HealthCheck"
-	FinanceService_Ping_FullMethodName              = "/finance.v1.FinanceService/Ping"
-	FinanceService_CreateTransaction_FullMethodName = "/finance.v1.FinanceService/CreateTransaction"
+	FinanceService_HealthCheck_FullMethodName              = "/finance.v1.FinanceService/HealthCheck"
+	FinanceService_Ping_FullMethodName                     = "/finance.v1.FinanceService/Ping"
+	FinanceService_RegisterByWhatsappNumber_FullMethodName = "/finance.v1.FinanceService/RegisterByWhatsappNumber"
+	FinanceService_LoginByWhatsappNumber_FullMethodName    = "/finance.v1.FinanceService/LoginByWhatsappNumber"
+	FinanceService_ResolveCategoryByName_FullMethodName    = "/finance.v1.FinanceService/ResolveCategoryByName"
+	FinanceService_CreateTransaction_FullMethodName        = "/finance.v1.FinanceService/CreateTransaction"
+	FinanceService_ListTransactionHistory_FullMethodName   = "/finance.v1.FinanceService/ListTransactionHistory"
 )
 
 // FinanceServiceClient is the client API for FinanceService service.
@@ -30,7 +34,11 @@ const (
 type FinanceServiceClient interface {
 	HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error)
+	RegisterByWhatsappNumber(ctx context.Context, in *RegisterByWhatsappNumberRequest, opts ...grpc.CallOption) (*RegisterByWhatsappNumberResponse, error)
+	LoginByWhatsappNumber(ctx context.Context, in *LoginByWhatsappNumberRequest, opts ...grpc.CallOption) (*LoginByWhatsappNumberResponse, error)
+	ResolveCategoryByName(ctx context.Context, in *ResolveCategoryByNameRequest, opts ...grpc.CallOption) (*ResolveCategoryByNameResponse, error)
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
+	ListTransactionHistory(ctx context.Context, in *ListTransactionHistoryRequest, opts ...grpc.CallOption) (*ListTransactionHistoryResponse, error)
 }
 
 type financeServiceClient struct {
@@ -61,10 +69,50 @@ func (c *financeServiceClient) Ping(ctx context.Context, in *PingRequest, opts .
 	return out, nil
 }
 
+func (c *financeServiceClient) RegisterByWhatsappNumber(ctx context.Context, in *RegisterByWhatsappNumberRequest, opts ...grpc.CallOption) (*RegisterByWhatsappNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterByWhatsappNumberResponse)
+	err := c.cc.Invoke(ctx, FinanceService_RegisterByWhatsappNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *financeServiceClient) LoginByWhatsappNumber(ctx context.Context, in *LoginByWhatsappNumberRequest, opts ...grpc.CallOption) (*LoginByWhatsappNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoginByWhatsappNumberResponse)
+	err := c.cc.Invoke(ctx, FinanceService_LoginByWhatsappNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *financeServiceClient) ResolveCategoryByName(ctx context.Context, in *ResolveCategoryByNameRequest, opts ...grpc.CallOption) (*ResolveCategoryByNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResolveCategoryByNameResponse)
+	err := c.cc.Invoke(ctx, FinanceService_ResolveCategoryByName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *financeServiceClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, FinanceService_CreateTransaction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *financeServiceClient) ListTransactionHistory(ctx context.Context, in *ListTransactionHistoryRequest, opts ...grpc.CallOption) (*ListTransactionHistoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListTransactionHistoryResponse)
+	err := c.cc.Invoke(ctx, FinanceService_ListTransactionHistory_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +125,11 @@ func (c *financeServiceClient) CreateTransaction(ctx context.Context, in *Create
 type FinanceServiceServer interface {
 	HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
 	Ping(context.Context, *PingRequest) (*PingResponse, error)
+	RegisterByWhatsappNumber(context.Context, *RegisterByWhatsappNumberRequest) (*RegisterByWhatsappNumberResponse, error)
+	LoginByWhatsappNumber(context.Context, *LoginByWhatsappNumberRequest) (*LoginByWhatsappNumberResponse, error)
+	ResolveCategoryByName(context.Context, *ResolveCategoryByNameRequest) (*ResolveCategoryByNameResponse, error)
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
+	ListTransactionHistory(context.Context, *ListTransactionHistoryRequest) (*ListTransactionHistoryResponse, error)
 	mustEmbedUnimplementedFinanceServiceServer()
 }
 
@@ -94,8 +146,20 @@ func (UnimplementedFinanceServiceServer) HealthCheck(context.Context, *HealthChe
 func (UnimplementedFinanceServiceServer) Ping(context.Context, *PingRequest) (*PingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Ping not implemented")
 }
+func (UnimplementedFinanceServiceServer) RegisterByWhatsappNumber(context.Context, *RegisterByWhatsappNumberRequest) (*RegisterByWhatsappNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterByWhatsappNumber not implemented")
+}
+func (UnimplementedFinanceServiceServer) LoginByWhatsappNumber(context.Context, *LoginByWhatsappNumberRequest) (*LoginByWhatsappNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoginByWhatsappNumber not implemented")
+}
+func (UnimplementedFinanceServiceServer) ResolveCategoryByName(context.Context, *ResolveCategoryByNameRequest) (*ResolveCategoryByNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResolveCategoryByName not implemented")
+}
 func (UnimplementedFinanceServiceServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateTransaction not implemented")
+}
+func (UnimplementedFinanceServiceServer) ListTransactionHistory(context.Context, *ListTransactionHistoryRequest) (*ListTransactionHistoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ListTransactionHistory not implemented")
 }
 func (UnimplementedFinanceServiceServer) mustEmbedUnimplementedFinanceServiceServer() {}
 func (UnimplementedFinanceServiceServer) testEmbeddedByValue()                        {}
@@ -154,6 +218,60 @@ func _FinanceService_Ping_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FinanceService_RegisterByWhatsappNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterByWhatsappNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FinanceServiceServer).RegisterByWhatsappNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FinanceService_RegisterByWhatsappNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FinanceServiceServer).RegisterByWhatsappNumber(ctx, req.(*RegisterByWhatsappNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FinanceService_LoginByWhatsappNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoginByWhatsappNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FinanceServiceServer).LoginByWhatsappNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FinanceService_LoginByWhatsappNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FinanceServiceServer).LoginByWhatsappNumber(ctx, req.(*LoginByWhatsappNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FinanceService_ResolveCategoryByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResolveCategoryByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FinanceServiceServer).ResolveCategoryByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FinanceService_ResolveCategoryByName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FinanceServiceServer).ResolveCategoryByName(ctx, req.(*ResolveCategoryByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FinanceService_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTransactionRequest)
 	if err := dec(in); err != nil {
@@ -168,6 +286,24 @@ func _FinanceService_CreateTransaction_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FinanceServiceServer).CreateTransaction(ctx, req.(*CreateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FinanceService_ListTransactionHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListTransactionHistoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FinanceServiceServer).ListTransactionHistory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FinanceService_ListTransactionHistory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FinanceServiceServer).ListTransactionHistory(ctx, req.(*ListTransactionHistoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -188,8 +324,24 @@ var FinanceService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _FinanceService_Ping_Handler,
 		},
 		{
+			MethodName: "RegisterByWhatsappNumber",
+			Handler:    _FinanceService_RegisterByWhatsappNumber_Handler,
+		},
+		{
+			MethodName: "LoginByWhatsappNumber",
+			Handler:    _FinanceService_LoginByWhatsappNumber_Handler,
+		},
+		{
+			MethodName: "ResolveCategoryByName",
+			Handler:    _FinanceService_ResolveCategoryByName_Handler,
+		},
+		{
 			MethodName: "CreateTransaction",
 			Handler:    _FinanceService_CreateTransaction_Handler,
+		},
+		{
+			MethodName: "ListTransactionHistory",
+			Handler:    _FinanceService_ListTransactionHistory_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

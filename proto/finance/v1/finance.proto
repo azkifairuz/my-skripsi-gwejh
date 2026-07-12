@@ -7,7 +7,11 @@ option go_package = "github.com/azkifairuz/my-skripsi-gwejh/finance-service/inte
 service FinanceService {
   rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
   rpc Ping(PingRequest) returns (PingResponse);
+  rpc RegisterByWhatsappNumber(RegisterByWhatsappNumberRequest) returns (RegisterByWhatsappNumberResponse);
+  rpc LoginByWhatsappNumber(LoginByWhatsappNumberRequest) returns (LoginByWhatsappNumberResponse);
+  rpc ResolveCategoryByName(ResolveCategoryByNameRequest) returns (ResolveCategoryByNameResponse);
   rpc CreateTransaction(CreateTransactionRequest) returns (CreateTransactionResponse);
+  rpc ListTransactionHistory(ListTransactionHistoryRequest) returns (ListTransactionHistoryResponse);
 }
 
 message HealthCheckRequest {}
@@ -22,6 +26,41 @@ message PingRequest {
 
 message PingResponse {
   string message = 1;
+}
+
+message RegisterByWhatsappNumberRequest {
+  string whatsapp_number = 1;
+  string username = 2;
+}
+
+message RegisterByWhatsappNumberResponse {
+  string account_id = 1;
+  string whatsapp_number = 2;
+  string username = 3;
+  int64 primary_wallet_id = 4;
+  bool created = 5;
+  string created_at = 6;
+}
+
+message LoginByWhatsappNumberRequest {
+  string whatsapp_number = 1;
+}
+
+message LoginByWhatsappNumberResponse {
+  string account_id = 1;
+  string whatsapp_number = 2;
+  string username = 3;
+  int64 primary_wallet_id = 4;
+  string created_at = 5;
+}
+
+message ResolveCategoryByNameRequest {
+  string category_name = 1;
+}
+
+message ResolveCategoryByNameResponse {
+  int64 category_id = 1;
+  string name = 2;
 }
 
 message CreateTransactionRequest {
@@ -47,4 +86,36 @@ message CreateTransactionResponse {
   string name = 7;
   string report_date = 8;
   string created_at = 9;
+}
+
+message ListTransactionHistoryRequest {
+  string account_id = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+  string type = 4;
+  string from_date = 5;
+  string to_date = 6;
+}
+
+message TransactionHistoryItem {
+  int64 transaction_id = 1;
+  string account_id = 2;
+  int64 wallet_id = 3;
+  string wallet_name = 4;
+  int64 category_id = 5;
+  string category_name = 6;
+  string type = 7;
+  double amount = 8;
+  string name = 9;
+  bool is_ai_generated = 10;
+  string receipt_image_url = 11;
+  string report_date = 12;
+  string created_at = 13;
+}
+
+message ListTransactionHistoryResponse {
+  repeated TransactionHistoryItem transactions = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+  int32 count = 4;
 }

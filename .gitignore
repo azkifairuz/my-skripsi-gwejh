@@ -18,3 +18,6 @@ ocr-service/ocr-service
 whatsapp-service/whatsapp-service
 finance-service/finance-service
 nlp-service/nlp-service
+
+# Node dependencies
+node_modules/
